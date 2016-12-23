@@ -4,27 +4,18 @@ class App extends React.Component {
     constructor() {
         super();
 
-        this.state = {
-            data: []
-        }
-
-        this.setStateHandler = this.setStateHandler.bind(this);
+        this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
     };
 
-    setStateHandler() {
-        var item = "setState....";
-        var myArray = this.state.data;
-        myArray.push(item);
-        this.setState({
-            data: myArray
-        })
+    forceUpdateHandler() {
+        this.forceUpdate();
     };
 
     render() {
         return (
            <div>
-                <button onClick={this.setStateHandler}>SET STATE</button>
-                <h4>State Array: {this.state.data}</h4>
+                <button onClick={this.forceUpdateHandler}>FORCE UPDATE</button>
+                <h4>Random Number: {Math.random()}</h4>
            </div>
         );
     }
