@@ -14,14 +14,14 @@ class App extends React.Component {
 
     updateState(e){
         this.setState({
-            data: e.target.value
+            data: 'Data updated from child component....'
         });
     }
 
     render() {
         return (
             <div>
-                <Content myDataProp={this.state.data} updateStateProp={this.updateState}></Content>
+                <Content myDataProp={this.state.data} myUpdateStateProp={this.updateState}></Content>
             </div>
         );
     }
@@ -31,8 +31,8 @@ class Content extends React.Component {
     render() {
         return (
             <div>
-                <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp} />
-                <h3>{this.props.myDataProp}</h3>
+                <button onClick={this.props.myUpdateStateProp}>Click!</button>
+                <h4>{this.props.myDataProp}</h4>
             </div>
         );
     }
